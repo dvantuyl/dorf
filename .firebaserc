@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "breadbeard-9dfa9": {
+      "hosting": {
+        "dorf": [
+          "breadbeard-9dfa9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "breadbeard-9dfa9"
+  }
+}
