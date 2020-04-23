@@ -1,0 +1,11 @@
+<div id="dorf-component-outer" [ngClass]="{ maybe: maybe }">
+  <a
+    routerLink="/what"
+    routerLinkActive="active"
+    [ngClass]="{ maybe: maybe }"
+    (mouseenter)="maybe = true"
+    (mouseleave)="maybe = false"
+  >
+    dorf
+  </a>
+</div>

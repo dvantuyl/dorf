@@ -1,18 +1,3 @@
-<div id="app-component-outer" [ngClass]="{ maybe: maybe, dorf: dorf }">
-  <div id="dorf-container">
-    <a
-      routerLink="/what"
-      routerLinkActive="active"
-      [ngClass]="{ maybe: maybe, dorf: dorf }"
-      (click)="dorf = true"
-      (mouseenter)="maybe = true"
-      (mouseleave)="maybe = false"
-    >
-      {{ title }}
-    </a>
-  </div>
-
-  <div id="app-component-inner" [ngClass]="{ dorf: dorf }">
-    <router-outlet></router-outlet>
-  </div>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+  <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>

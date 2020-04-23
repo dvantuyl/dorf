@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    loadChildren: () =>
+      import('./modules/dorf/dorf.module').then((m) => m.DorfModule),
     pathMatch: 'full',
+    data: { animation: 'dorf' },
   },
 ];
 

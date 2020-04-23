@@ -1,0 +1,25 @@
+#dorf-component-outer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+
+  &.maybe,
+  &.dorf {
+    background-color: black;
+  }
+
+  a {
+    font-size: 20vh;
+    color: black;
+    cursor: pointer;
+
+    &.maybe,
+    &.dorf {
+      color: white;
+    }
+  }
+}
