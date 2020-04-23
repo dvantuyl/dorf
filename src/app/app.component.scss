@@ -1,0 +1,72 @@
+#app-component-outer {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+
+  background-color: white;
+
+  &.maybe,
+  &.dorf {
+    background-color: black;
+  }
+
+  #dorf-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      font-size: 20vh;
+      color: black;
+      cursor: pointer;
+
+      &.maybe,
+      &.dorf {
+        color: white;
+      }
+
+      &.dorf {
+        animation: DorfTitle 2s ease-in 0s 1;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+#app-component-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  transform: scale(0);
+
+  &.dorf {
+    animation: DorfInner 2s ease-in 0s 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes DorfTitle {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(100);
+  }
+}
+
+@keyframes DorfInner {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
