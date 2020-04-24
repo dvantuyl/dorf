@@ -5,21 +5,12 @@
   justify-content: center;
   align-items: center;
 
-  background-color: white;
-
-  &.maybe,
-  &.dorf {
-    background-color: black;
-  }
-
   a {
     font-size: 20vh;
-    color: black;
     cursor: pointer;
 
-    &.maybe,
-    &.dorf {
-      color: white;
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }

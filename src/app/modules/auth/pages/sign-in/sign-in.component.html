@@ -1,10 +1,10 @@
-<div id="sign-in-component" [ngClass]="{ maybe: maybe, dorf: dorf }">
+<div id="sign-in-component" [ngStyle]="secondaryStyle()">
   <ng-container *ngIf="auth.user | async; else noDorf"> </ng-container>
   <ng-template #noDorf>
     <a
-      [ngClass]="{ maybe: maybe, dorf: dorf }"
-      (mouseenter)="maybe = true"
-      (mouseleave)="maybe = false"
+      [ngStyle]="primaryStyle()"
+      (mouseenter)="randomizeStyles()"
+      (mouseleave)="randomizeStyles()"
       (click)="login()"
     >
       no dorf

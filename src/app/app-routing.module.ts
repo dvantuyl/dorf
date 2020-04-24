@@ -11,14 +11,7 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/no-dorf']);
 const redirectLoggedInToDorf = () => redirectLoggedInTo(['/dorf']);
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dorf', pathMatch: 'full' },
-  {
-    path: 'no-dorf',
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedInToDorf },
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then((m) => m.AuthModule),
-  },
+  { path: '', redirectTo: 'dorf', pathMatch: 'full' },
   {
     path: '',
     component: AppComponent,
@@ -39,11 +32,14 @@ const routes: Routes = [
 
         data: { animation: 'games' },
       },
-      {
-        path: '**',
-        redirectTo: '/dorf',
-      },
     ],
+  },
+  {
+    path: 'no-dorf',
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToDorf },
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
 ];
 

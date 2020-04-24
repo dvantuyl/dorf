@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RandomColorContrastService } from '@core/service/random-color-contrast.service';
 
 @Component({
   selector: 'app-dorf',
@@ -6,10 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dorf.component.scss'],
 })
 export class DorfComponent implements OnInit {
-  maybe = false;
-  dorf = false;
+  constructor(
+    private rccs: RandomColorContrastService,
+    private router: Router
+  ) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.randomizeStyles();
+  }
 
-  ngOnInit(): void {}
+  primaryStyle(): any {
+    return { color: `rgb(${[...this.rccs.primary()]})` };
+  }
+
+  secondaryStyle(): any {
+    return { backgroundColor: `rgb(${[...this.rccs.secondary()]})` };
+  }
+
+  randomizeStyles() {
+    this.rccs.randomize();
+  }
+
+  dorf() {
+    this.randomizeStyles();
+    this.router.navigate(['/what']);
+  }
 }

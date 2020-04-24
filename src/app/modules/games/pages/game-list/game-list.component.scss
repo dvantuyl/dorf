@@ -11,7 +11,6 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 4%;
-  color: white;
 }
 #what {
   grid-area: what;
@@ -22,8 +21,30 @@
   justify-content: center;
   align-items: center;
   text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
-.game {
+.game-container-outer {
   border: 10px solid white;
   border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.game-container-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .name {
+    font-size: 5vh;
+  }
 }

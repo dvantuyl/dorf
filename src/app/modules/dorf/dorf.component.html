@@ -1,10 +1,11 @@
-<div id="dorf-component-outer" [ngClass]="{ maybe: maybe }">
+<div id="dorf-component-outer" [ngStyle]="secondaryStyle()">
   <a
     routerLink="/what"
     routerLinkActive="active"
-    [ngClass]="{ maybe: maybe }"
-    (mouseenter)="maybe = true"
-    (mouseleave)="maybe = false"
+    [ngStyle]="primaryStyle()"
+    (mouseenter)="randomizeStyles()"
+    (mouseleave)="randomizeStyles()"
+    (mousedown)="randomizeStyles()"
   >
     dorf
   </a>
