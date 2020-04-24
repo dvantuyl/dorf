@@ -7,9 +7,9 @@ import { GameRoomComponent } from './pages/game-room/game-room.component';
 
 const routes: Routes = [
   {
-    path: 'what',
+    path: '',
     component: GamesComponent,
-    data: { animation: 'games' },
+    pathMatch: 'full',
     children: [
       {
         path: '',
