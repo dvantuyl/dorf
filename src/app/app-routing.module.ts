@@ -1,15 +1,29 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from '@core/guard/auth.guard';
+import {
+  AngularFireAuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from '@angular/fire/auth-guard';
 import { AppComponent } from './app.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'dorf', pathMatch: 'full' },
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/no-dorf']);
+const redirectLoggedInToDorf = () => redirectLoggedInTo(['/dorf']);
 
+const routes: Routes = [
+  { path: '', redirectTo: '/dorf', pathMatch: 'full' },
+  {
+    path: 'no-dorf',
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToDorf },
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
   {
     path: '',
     component: AppComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
     children: [
       {
         path: 'dorf',
@@ -25,12 +39,11 @@ const routes: Routes = [
 
         data: { animation: 'games' },
       },
+      {
+        path: '**',
+        redirectTo: '/dorf',
+      },
     ],
-  },
-  {
-    path: 'auth',
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
 ];
 
