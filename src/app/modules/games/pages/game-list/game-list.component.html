@@ -13,6 +13,7 @@
     class="game-container-outer"
     [ngStyle]="primaryStyle()"
     (mouseenter)="randomizeStyles()"
+    (click)="gotoGame(game)"
   >
     <div class="game-container-inner">
       <div class="name">{{ game.name }}</div>

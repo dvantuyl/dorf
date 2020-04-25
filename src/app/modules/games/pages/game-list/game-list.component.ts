@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RandomColorContrastService } from '@core/service/random-color-contrast.service';
-import { GAMES_LIST } from '@library';
+import { GAMES_LIST, IGameDef } from '@library';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-list',
@@ -10,9 +11,16 @@ import { GAMES_LIST } from '@library';
 export class GameListComponent implements OnInit {
   games = GAMES_LIST;
 
-  constructor(private rccs: RandomColorContrastService) {}
+  constructor(
+    private rccs: RandomColorContrastService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
+
+  gotoGame(game: IGameDef) {
+    this.router.navigate([`/what/${game.id}`]);
+  }
 
   primaryStyle(): any {
     return {
