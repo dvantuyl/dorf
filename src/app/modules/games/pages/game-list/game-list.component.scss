@@ -20,7 +20,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: underline;
+
+  //font-family: "Bungee Shade", cursive;
+  font-family: "Luckiest Guy", cursive;
   cursor: pointer;
 
   &:hover {
@@ -45,6 +47,7 @@
   align-items: center;
 
   .name {
+    font-family: "Luckiest Guy", cursive;
     font-size: 5vh;
   }
 }
