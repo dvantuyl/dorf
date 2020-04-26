@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
-import { RandomColorContrastService } from '@core/service/random-color-contrast.service';
+import { RandomStyleService } from '@core/service/random-style-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,7 +13,7 @@ export class SignInComponent implements OnInit {
   constructor(
     public auth: AngularFireAuth,
     private router: Router,
-    private rccs: RandomColorContrastService
+    private rss: RandomStyleService
   ) {}
 
   ngOnInit(): void {
@@ -34,14 +34,14 @@ export class SignInComponent implements OnInit {
   }
 
   primaryStyle(): any {
-    return { color: `rgb(${[...this.rccs.primary()]})` };
+    return { color: `rgb(${[...this.rss.rgbPrimary]})` };
   }
 
   secondaryStyle(): any {
-    return { backgroundColor: `rgb(${[...this.rccs.secondary()]})` };
+    return { backgroundColor: `rgb(${[...this.rss.rgbSecondary]})` };
   }
 
   randomizeStyles() {
-    this.rccs.randomize();
+    this.rss.randomize();
   }
 }

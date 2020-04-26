@@ -1,22 +1,25 @@
-<div id="games-list-component-outer" [ngStyle]="secondaryStyle()">
-  <div
-    id="what"
-    [ngStyle]="primaryStyle()"
-    (mouseenter)="randomizeStyles()"
-    (mousedown)="randomizeStyles()"
-  >
-    what
-  </div>
-  <div
-    *ngFor="let game of games; index as i"
-    [id]="'game-' + i"
-    class="game-container-outer"
-    [ngStyle]="primaryStyle()"
-    (mouseenter)="randomizeStyles()"
-    (click)="gotoGame(game)"
-  >
-    <div class="game-container-inner">
-      <div class="name">{{ game.name }}</div>
+<div id="games-list-component-outer">
+  <app-background></app-background>
+  <div id="games-list-component-inner">
+    <div
+      id="what"
+      [ngStyle]="primaryStyle()"
+      (mouseenter)="randomizeStyles()"
+      (mousedown)="randomizeStyles()"
+    >
+      what
+    </div>
+    <div
+      *ngFor="let game of games; index as i"
+      [id]="'game-' + i"
+      class="game-container-outer"
+      [ngStyle]="primaryStyle()"
+      (mouseenter)="randomizeStyles()"
+      (click)="gotoGame(game)"
+    >
+      <div class="game-container-inner">
+        <div class="name">{{ game.name }}</div>
+      </div>
     </div>
   </div>
 </div>

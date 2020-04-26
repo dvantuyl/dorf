@@ -1,19 +1,33 @@
 #dorf-component-outer {
+  position: relative;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  a {
-    font-size: 20vh;
-    cursor: pointer;
-    //font-family: "Luckiest Guy", cursive;
-    font-family: "Bungee Shade", cursive;
-    text-decoration: none;
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-    &:hover {
-      transform: scale(1.1);
+  #dorf-component-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #dorf {
+      font-size: 20vh;
+      cursor: pointer;
+      font-family: "Luckiest Guy", cursive;
+      //font-family: "Bungee Shade", cursive;
+      text-decoration: none;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

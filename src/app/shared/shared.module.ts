@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
+import * as fromComponents from './components';
+import { from } from 'rxjs';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [...fromComponents.components],
+  imports: [CommonModule],
+  exports: [...fromComponents.components],
 })
-export class SharedModule { }
+export class SharedModule {}

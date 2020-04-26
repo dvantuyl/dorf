@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class RandomColorContrastService {
-  private rgbPrimary: Array<number>;
-  private rgbSecondary: Array<number>;
+export class RandomStyleService {
+  rgbPrimary: Array<number>;
+  rgbSecondary: Array<number>;
+  patternX: number;
+  patternY: number;
 
   constructor() {
     this.randomize();
@@ -23,14 +25,8 @@ export class RandomColorContrastService {
       255 - this.rgbPrimary[1],
       255 - this.rgbPrimary[2],
     ];
-  }
-
-  primary(): Array<number> {
-    return this.rgbPrimary;
-  }
-
-  secondary(): Array<number> {
-    return this.rgbSecondary;
+    this.patternX = this.randomInt(100);
+    this.patternY = this.randomInt(100);
   }
 
   private randomInt(max: number): number {

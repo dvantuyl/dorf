@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RandomColorContrastService } from './random-color-contrast.service';
+import { RandomStyleService } from './random-style-service';
 
 describe('RandomColorContrastService', () => {
-  let service: RandomColorContrastService;
+  let service: RandomStyleService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RandomColorContrastService);
+    service = TestBed.inject(RandomStyleService);
   });
 
   it('should be created', () => {

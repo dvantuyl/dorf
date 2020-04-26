@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RandomColorContrastService } from '@core/service/random-color-contrast.service';
+import { RandomStyleService } from '@core/service/random-style-service';
 import { GAMES_LIST, IGameDef } from '@library';
 import { Router } from '@angular/router';
 
@@ -11,10 +11,7 @@ import { Router } from '@angular/router';
 export class GameListComponent implements OnInit {
   games = GAMES_LIST;
 
-  constructor(
-    private rccs: RandomColorContrastService,
-    private router: Router
-  ) {}
+  constructor(private rss: RandomStyleService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -24,16 +21,16 @@ export class GameListComponent implements OnInit {
 
   primaryStyle(): any {
     return {
-      color: `rgb(${[...this.rccs.primary()]})`,
-      borderColor: `rgb(${[...this.rccs.primary()]})`,
+      color: `rgb(${[...this.rss.rgbPrimary]})`,
+      borderColor: `rgb(${[...this.rss.rgbPrimary]})`,
     };
   }
 
   secondaryStyle(): any {
-    return { backgroundColor: `rgb(${[...this.rccs.secondary()]})` };
+    return { backgroundColor: `rgb(${[...this.rss.rgbSecondary]})` };
   }
 
   randomizeStyles() {
-    this.rccs.randomize();
+    this.rss.randomize();
   }
 }

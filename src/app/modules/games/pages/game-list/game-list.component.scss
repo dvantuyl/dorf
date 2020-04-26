@@ -1,6 +1,14 @@
 #games-list-component-outer {
   height: 100vh;
   width: 100vw;
+}
+
+#games-list-component-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   box-sizing: border-box;
   padding: 2%;
   display: grid;
@@ -12,16 +20,17 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 4%;
 }
+
 #what {
   grid-area: what;
   font-size: 20vh;
-  height: 100%;
+  height: calc(100% - 6vh);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  //font-family: "Bungee Shade", cursive;
+  margin-top: 6vh;
   font-family: "Luckiest Guy", cursive;
   cursor: pointer;
 

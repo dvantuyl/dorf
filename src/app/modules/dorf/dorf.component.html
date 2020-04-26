@@ -1,12 +1,16 @@
-<div id="dorf-component-outer" [ngStyle]="secondaryStyle()">
-  <a
-    routerLink="/what"
-    routerLinkActive="active"
-    [ngStyle]="primaryStyle()"
-    (mouseenter)="randomizeStyles()"
-    (mouseleave)="randomizeStyles()"
-    (mousedown)="randomizeStyles()"
-  >
-    dorf
-  </a>
+<div id="dorf-component-outer">
+  <app-background></app-background>
+  <div id="dorf-component-inner">
+    <a
+      id="dorf"
+      routerLink="/what"
+      routerLinkActive="active"
+      [ngStyle]="primaryStyle()"
+      (mouseenter)="randomizeStyles()"
+      (mouseleave)="randomizeStyles()"
+      (mousedown)="randomizeStyles()"
+    >
+      dorf
+    </a>
+  </div>
 </div>
