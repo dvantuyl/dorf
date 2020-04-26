@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { GamesModule } from './modules/games/games.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { DorfModule } from './modules/dorf/dorf.module';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { DorfModule } from './modules/dorf/dorf.module';
     AuthModule,
     DorfModule,
     GamesModule,
+    SharedModule,
     AppRoutingModule,
   ],
   providers: [],

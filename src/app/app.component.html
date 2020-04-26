@@ -1,3 +1,8 @@
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
-  <router-outlet #routerOutlet="outlet"></router-outlet>
+<div id="app-component-outer">
+  <app-background></app-background>
+  <div id="app-component-inner">
+    <div [@routeAnimation]="getAnimationData(routerOutlet)">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+  </div>
 </div>

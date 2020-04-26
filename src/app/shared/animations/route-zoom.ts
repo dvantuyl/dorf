@@ -44,10 +44,10 @@ export default trigger('routeAnimation', [
     query(':leave', animateChild()),
     group([
       query(':leave', [
-        animate('1s ease-in', style({ transform: 'scale(0)' })),
+        animate('1s ease-out', style({ transform: 'scale(0)' })),
       ]),
       query(':enter', [
-        animate('1s ease-in', style({ transform: 'scale(1)' })),
+        animate('1s ease-out', style({ transform: 'scale(1)' })),
       ]),
     ]),
     query(':enter', animateChild()),

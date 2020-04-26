@@ -37,10 +37,6 @@ export class SignInComponent implements OnInit {
     return { color: `rgb(${[...this.rss.rgbPrimary]})` };
   }
 
-  secondaryStyle(): any {
-    return { backgroundColor: `rgb(${[...this.rss.rgbSecondary]})` };
-  }
-
   randomizeStyles() {
     this.rss.randomize();
   }

@@ -1,20 +1,7 @@
 #dorf-component-outer {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
   #dorf-component-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +9,6 @@
       font-size: 20vh;
       cursor: pointer;
       font-family: "Luckiest Guy", cursive;
-      //font-family: "Bungee Shade", cursive;
       text-decoration: none;
 
       &:hover {

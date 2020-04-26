@@ -1,4 +1,4 @@
-<div id="sign-in-component" [ngStyle]="secondaryStyle()">
+<div id="sign-in-component">
   <ng-container *ngIf="auth.user | async; else noDorf"> </ng-container>
   <ng-template #noDorf>
     <a
