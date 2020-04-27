@@ -7,7 +7,7 @@ import {
 } from '@angular/fire/auth-guard';
 import { AppComponent } from './app.component';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/no-dorf']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/who']);
 const redirectLoggedInToDorf = () => redirectLoggedInTo(['/dorf']);
 
 const routes: Routes = [
@@ -35,7 +35,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'no-dorf',
+    path: 'who',
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToDorf },
     loadChildren: () =>

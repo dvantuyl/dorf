@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   { path: 'what/:gameId', component: GameDetailComponent },
 
-  { path: ':gameId/:roomId', component: GameRoomComponent },
+  { path: 'what/:gameId/:roomId', component: GameRoomComponent },
 ];
 
 @NgModule({

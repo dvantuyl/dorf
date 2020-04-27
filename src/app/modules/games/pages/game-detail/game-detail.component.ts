@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { RandomStyleService } from '@core/service/random-style-service';
 import { GAMES_LIST, IGameDef } from '@library';
 
@@ -11,16 +11,11 @@ import { GAMES_LIST, IGameDef } from '@library';
 export class GameDetailComponent implements OnInit {
   public game: IGameDef;
 
-  constructor(
-    private rss: RandomStyleService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private rss: RandomStyleService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.game = GAMES_LIST.find((game) => game.id === params['gameId']);
-      console.log(params, this.game);
-    });
+    const gameId = this.route.snapshot.paramMap.get('gameId');
+    this.game = GAMES_LIST.find((game) => game.id === gameId);
   }
 
   primaryStyle(): any {
