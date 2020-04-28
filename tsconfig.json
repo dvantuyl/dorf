@@ -17,7 +17,8 @@
       "@shared/*": ["src/app/shared/*"],
       "@core/*": ["src/app/core/*"],
       "@library": ["src/app/library"],
-      "@library/*": ["src/app/library/*"]
+      "@library/*": ["src/app/library/*"],
+      "@modules/*": ["src/app/modules/*"]
     }
   },
   "angularCompilerOptions": {

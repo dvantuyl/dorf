@@ -20,7 +20,7 @@ export class SignInComponent implements OnInit {
     this.randomizeStyles();
     this.auth.user.subscribe((user) => {
       if (user) {
-        this.router.navigate(['/dorf']);
+        this.router.navigate(['']);
       }
     });
   }
@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
   login() {
     this.auth.signInWithPopup(new auth.GoogleAuthProvider()).then((result) => {
       if (result.user) {
-        this.router.navigate(['/dorf']);
+        this.router.navigate(['']);
       }
     });
   }

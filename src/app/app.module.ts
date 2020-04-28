@@ -11,9 +11,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
-import { GamesModule } from './modules/games/games.module';
-import { AuthModule } from './modules/auth/auth.module';
 import { DorfModule } from './modules/dorf/dorf.module';
+import { GamesModule } from '@modules/games/games.module';
 import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { SharedModule } from '@shared/shared.module';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AuthModule,
     DorfModule,
     GamesModule,
     SharedModule,

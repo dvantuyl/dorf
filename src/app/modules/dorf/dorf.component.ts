@@ -8,7 +8,7 @@ import { RandomStyleService } from '@core/service/random-style-service';
   styleUrls: ['./dorf.component.scss'],
 })
 export class DorfComponent implements OnInit {
-  constructor(private rss: RandomStyleService) {}
+  constructor(private rss: RandomStyleService, private router: Router) {}
 
   ngOnInit(): void {
     this.randomizeStyles();
@@ -22,5 +22,9 @@ export class DorfComponent implements OnInit {
 
   randomizeStyles() {
     this.rss.randomize();
+  }
+
+  gotoGames() {
+    this.router.navigate([`/what`]);
   }
 }

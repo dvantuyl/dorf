@@ -5,34 +5,40 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
-import { AppComponent } from './app.component';
+import { DorfComponent } from '@modules/dorf/dorf.component';
+import { GameListComponent } from '@modules/games/pages/game-list/game-list.component';
+import { GameDetailComponent } from '@modules/games/pages/game-detail/game-detail.component';
+import { GameRoomComponent } from '@modules/games/pages/game-room/game-room.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/who']);
-const redirectLoggedInToDorf = () => redirectLoggedInTo(['/dorf']);
+const redirectLoggedInToDorf = () => redirectLoggedInTo(['']);
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dorf', pathMatch: 'full' },
   {
     path: '',
-    component: AppComponent,
+    pathMatch: 'full',
+    component: DorfComponent,
     canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-    children: [
-      {
-        path: 'dorf',
-        loadChildren: () =>
-          import('./modules/dorf/dorf.module').then((m) => m.DorfModule),
+    data: { authGuardPipe: redirectUnauthorizedToLogin, animation: 'dorf' },
+  },
+  {
+    path: 'what',
+    component: GameListComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin, animation: 'what' },
+  },
+  {
+    path: 'what/:gameId',
+    component: GameDetailComponent,
 
-        data: { animation: 'dorf' },
-      },
-      {
-        path: 'what',
-        loadChildren: () =>
-          import('./modules/games/games.module').then((m) => m.GamesModule),
-
-        data: { animation: 'games' },
-      },
-    ],
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin, animation: 'detail' },
+  },
+  {
+    path: 'what/:gameId/:roomId',
+    component: GameRoomComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin, animation: 'room' },
   },
   {
     path: 'who',
@@ -41,6 +47,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({

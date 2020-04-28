@@ -2,12 +2,11 @@
   <div id="dorf-component-inner">
     <a
       id="dorf"
-      routerLink="/what"
-      routerLinkActive="active"
       [ngStyle]="primaryStyle()"
       (mouseenter)="randomizeStyles()"
       (mouseleave)="randomizeStyles()"
       (mousedown)="randomizeStyles()"
+      (click)="gotoGames()"
     >
       dorf
     </a>
