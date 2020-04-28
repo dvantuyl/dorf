@@ -1,14 +1,22 @@
 <div id="game-detail-component-outer">
-  <div id="game-detail-component-inner">
-    <h2>{{ game.name }}</h2>
-    <mat-form-field>
-      <mat-label>Cars</mat-label>
-      <mat-select>
-        <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div
+    id="game-detail-component-inner"
+    [ngStyle]="primaryStyle('border-color')"
+  >
+    <div class="name" [ngStyle]="primaryStyle('color')">{{ game.name }}</div>
+    <div class="container" [ngStyle]="primaryStyle('background-color')">
+      <mat-radio-group [(ngModel)]="numPlayers">
+        <mat-radio-button
+          *ngFor="let choice of numPlayerChoices"
+          [value]="choice"
+          [ngStyle]="secondaryStyle('color')"
+        >
+          {{ choice }} Players
+        </mat-radio-button>
+      </mat-radio-group>
+      <button mat-raised-button [ngStyle]="secondaryStyle('background-color')">
+        <span [ngStyle]="primaryStyle('color')">Play</span>
+      </button>
+    </div>
   </div>
 </div>

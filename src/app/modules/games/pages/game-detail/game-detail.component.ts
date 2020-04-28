@@ -10,18 +10,33 @@ import { GAMES_LIST, IGameDef } from '@library';
 })
 export class GameDetailComponent implements OnInit {
   public game: IGameDef;
+  public numPlayerChoices: Array<string> = [];
+  public numPlayers: string;
 
   constructor(private rss: RandomStyleService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const gameId = this.route.snapshot.paramMap.get('gameId');
     this.game = GAMES_LIST.find((game) => game.id === gameId);
+    this.numPlayers = '' + this.game.minPlayers;
+    for (let i = this.game.minPlayers; i <= this.game.maxPlayers; i++) {
+      this.numPlayerChoices.push('' + i);
+    }
   }
 
-  primaryStyle(): any {
-    return {
-      color: `rgb(${[...this.rss.rgbPrimary]})`,
-      borderColor: `rgb(${[...this.rss.rgbPrimary]})`,
-    };
+  primaryStyle(...attrs: Array<string>): any {
+    let style = {};
+    attrs.forEach((attr) => {
+      style[attr] = `rgb(${[...this.rss.rgbPrimary]})`;
+    });
+    return style;
+  }
+
+  secondaryStyle(...attrs: Array<string>): any {
+    let style = {};
+    attrs.forEach((attr) => {
+      style[attr] = `rgb(${[...this.rss.rgbSecondary]})`;
+    });
+    return style;
   }
 }
