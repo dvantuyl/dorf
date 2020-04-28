@@ -1,3 +1,14 @@
 <div id="game-detail-component-outer">
-  <h2>{{ game.name }}</h2>
+  <div id="game-detail-component-inner">
+    <h2>{{ game.name }}</h2>
+    <mat-form-field>
+      <mat-label>Cars</mat-label>
+      <mat-select>
+        <mat-option value="volvo">Volvo</mat-option>
+        <mat-option value="saab">Saab</mat-option>
+        <mat-option value="mercedes">Mercedes</mat-option>
+        <mat-option value="audi">Audi</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
